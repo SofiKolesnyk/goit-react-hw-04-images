@@ -18,7 +18,7 @@ function ImageGalleryStatus({ onClickImg, search }) {
     <div className={s.container}>
       {images.length === 0 && !error && <p>No images</p>}
       {error && !loading && <p>{error}</p>}
-      {images.length > 0 && !error && (
+      {/* {images.length > 0 && !error && ( */}
         <>
           <ImageGallery images={images} onClickImg={onClickImg} />
           {(pages > page && !loading) && <Button
@@ -27,7 +27,7 @@ function ImageGalleryStatus({ onClickImg, search }) {
             page={page}
           />}
         </>
-      )}
+      {/* )} */}
       {loading && <Loader />}
     </div>
   );

@@ -6,7 +6,7 @@ import { createPortal } from 'react-dom';
 const modalRootRef = document.querySelector('#root-modal');
 
 function Modal({onKeyDownEsc, src, alt}) {
-  // const el = useMemo(() => document.createElement('div'), []);
+  
 
   const onKeyDown = useCallback((e) => {
     if (e.key !== 'Escape') return;
@@ -20,11 +20,10 @@ function Modal({onKeyDownEsc, src, alt}) {
 
   useEffect(() => {
     window.addEventListener('keydown', onKeyDown)
-    // modalRootRef.appendChild(el)
 
     return () => {
       window.removeEventListener('keydown', onKeyDown)
-      // modalRootRef.removeChild(el)
+      
     };
   }, [onKeyDown, onKeyDownEsc]);
 
