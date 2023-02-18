@@ -1,22 +1,16 @@
-import React from 'react';
-import { ThreeDots } from 'react-loader-spinner';
-import s from './Loader.module.css'
+import { RotatingLines } from 'react-loader-spinner';
+import { Wraper } from './Loader.styled';
 
-const Loader = () => {
+export function Loader() {
   return (
-    <div className={s.container}>
-      <ThreeDots
-        height="80"
-        width="80"
-        radius="9"
-        color="#4fa94d"
-        ariaLabel="three-dots-loading"
-        // wrapperStyle={{}}
-        // wrapperClassName=""
+    <Wraper>
+      <RotatingLines
+        strokeColor="#cfe9ff"
+        strokeWidth="5"
+        animationDuration="0.75"
+        width="96"
         visible={true}
       />
-    </div>
+    </Wraper>
   );
-};
-
-export default Loader;
+}

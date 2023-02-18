@@ -1,45 +1,36 @@
-import React, { useCallback, useEffect } from 'react';
+import { Overlay, ModalWindow } from './Modal.styled';
 import PropTypes from 'prop-types';
-import s from './Modal.module.css'
-import { createPortal } from 'react-dom';
+import { useEffect } from 'react';
 
-const modalRootRef = document.querySelector('#root-modal');
-
-function Modal({onKeyDownEsc, src, alt}) {
-  
-
-  const onKeyDown = useCallback((e) => {
-    if (e.key !== 'Escape') return;
-    onKeyDownEsc()
-  }, [onKeyDownEsc])
-
-  const onClickOverlay = useCallback(({target, currentTarget}) => {
-    if (target !== currentTarget) return;
-    onKeyDownEsc()
-  }, [onKeyDownEsc])
-
+export const Modal = ({ onClose, children }) => {
   useEffect(() => {
-    window.addEventListener('keydown', onKeyDown)
+    const handelKeyClose = evt => {
+      if (evt.code === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handelKeyClose);
 
     return () => {
-      window.removeEventListener('keydown', onKeyDown)
-      
+      window.removeEventListener('keydown', handelKeyClose);
     };
-  }, [onKeyDown, onKeyDownEsc]);
+  }, [onClose]);
 
-  return createPortal((
-    <div className={s.overlay} onClick={onClickOverlay}>
-      <div className={s.modal}>
-        <img src={src} alt={alt} />
-      </div>
-    </div>
-  ), modalRootRef);
-}
+  const handelClose = evt => {
+    if (evt.target === evt.currentTarget) {
+      onClose();
+    }
+  };
 
-Modal.propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
-  onKeyDownEsc: PropTypes.func.isRequired,
+  return (
+    <Overlay onClick={handelClose}>
+      <ModalWindow>{children}</ModalWindow>
+    </Overlay>
+  );
 };
 
-export default Modal;
+Modal.propTypes = {
+  children: PropTypes.node,
+  onClose: PropTypes.func.isRequired,
+};
