@@ -9,7 +9,7 @@ export const Button = styled.button`
   padding: 5px 20px;
 
   border-radius: 2px;
-  background-color: #065ba2;
+  background-color: #065bb8;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   color: #fff;
   border: 0;
@@ -23,11 +23,11 @@ export const Button = styled.button`
 
   && {
     :hover {
-      background-color: #00d6ff;
+      background-color: #654def;
       scale: 1.2;
     }
     :focus {
-      background-color: #00d6ff;
+      background-color: #654def;
     }
-  }
+  } 
 `;

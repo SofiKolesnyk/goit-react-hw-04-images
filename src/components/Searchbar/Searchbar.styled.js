@@ -9,8 +9,8 @@ export const Header = styled.header`
   justify-content: center;
   align-items: center;
   min-height: 80px;
-  padding: 15px;
-  background-color: #065ba2;
+  padding: 5px;
+  background-color: #065bb8;
   box-shadow: 0px 3px 8px 2px rgba(0, 0, 0, 0.2);
 `;
 
@@ -18,7 +18,7 @@ export const Form = styled.form`
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 600px;
+  max-width: 600px; 
   background-color: #fff;
   border-radius: 3px;
   overflow: hidden;
@@ -45,7 +45,7 @@ export const Input = styled.input`
   display: inline-block;
   width: 100%;
   font: inherit;
-  font-size: 20px;
+  font-size: 16px;
   border: none;
   outline: none;
   padding-left: 4px;
@@ -54,8 +54,8 @@ export const Input = styled.input`
   && {
     ::placeholder {
       font: inherit;
-      font-size: 18px;
-      color: #8c8c8c;
+      font-size: 10px;
+      color: #065bb8;
       padding-left: 10px;
     }
   }
